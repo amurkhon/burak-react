@@ -28,7 +28,8 @@ export default function NewDishes() {
                     <Box className="category-title">Fresh Menu</Box>
                     <Stack className="cards-frame">
                         <CssVarsProvider>
-                            {list.map((ele, index) => {
+                            { list.length !== 0 ? (
+                            list.map((ele, index) => {
                                 return (
                                     <Card key={index} className={"card"} variant="outlined" sx={{ width: 320 }}>
                                         <CardOverflow>
@@ -54,7 +55,7 @@ export default function NewDishes() {
                                         </CardOverflow>
                                     </Card>
                                 );
-                            })}
+                            })) : <Box className="no-data">New Product Are Not Available!</Box> }
                         </CssVarsProvider>
                     </Stack>
                 </Stack>
