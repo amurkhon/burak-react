@@ -1,16 +1,11 @@
-import React from "react";
 import { Box, Container, Stack } from "@mui/material";
 import { CssVarsProvider } from "@mui/joy";
 
 import AspectRatio from '@mui/joy/AspectRatio';
 import Card from '@mui/joy/Card';
-import CardContent from '@mui/joy/CardContent';
 import CardOverflow from '@mui/joy/CardOverflow';
 import Divider from "../../components/divider"
 import Typography from '@mui/joy/Typography';
-import IconButton from '@mui/joy/IconButton';
-import Link from '@mui/joy/Link';
-import Favorite from '@mui/icons-material/Favorite';
 import VisiblityIcon from "@mui/icons-material/Visibility"
 
 const list = [
