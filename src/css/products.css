@@ -1,0 +1,286 @@
+.productspage {
+  width: 100%;
+  height: auto;
+}
+
+/* Menu */
+
+.productspage .menu {
+  width: 100%;
+  height: auto;
+  margin-top: 77px;
+  display: flex;
+}
+
+.productspage .menu .title {
+  width: 820px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-self: flex-end;
+}
+
+.productspage .menu .title .title-text {
+  font-family: Roboto Serif;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 42px;
+  letter-spacing: 0%;
+  text-align: left;
+  color: rgb(52, 52, 52);
+}
+
+.productspage .menu .title .search-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.productspage .menu .title .input {
+  width: 360px;
+  height: 36px;
+  box-sizing: border-box;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 18.5px;
+
+  box-shadow: 0px 4px 4px 0px rgba(213, 213, 213, 0.25);
+  background: rgb(255, 252, 252);
+}
+
+.productspage .menu .title .search-button {
+  width: 106px;
+  height: 40px;
+  margin-left: -30px;
+  border-radius: 18.5px;
+  background: rgb(52, 52, 52);
+  color: #d7b586;
+  font-family: Quicksand;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 19px;
+  letter-spacing: 0%;
+  text-align: left;
+}
+
+.productspage .menu .filter {
+  width: 250px;
+  height: 37px;
+  margin-top: 62px;
+  margin-right: 47px;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  align-items: center;
+  align-self: flex-end;
+}
+
+.productspage .menu .filter .filter-buttons {
+  width: 70px;
+  height: 36.5px;
+}
+
+.productspage .menu .filter .filter-buttons .order {
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0%;
+  text-align: left;
+}
+
+.productspage .menu .product-list-section {
+  width: 100%;
+  height: auto;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.productspage .menu .product-list-section .categories {
+  width: 36px;
+  height: 389px;
+  position: relative;
+  top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  align-self: flex-start;
+}
+
+.productspage .menu .product-list-section .categories .category-button {
+  width: 79px;
+  height: 36px;
+  transform: rotate(-90deg);
+}
+
+.productspage .menu .product-list-section .categories .category-button .order {
+  width: 100%;
+  height: 100%;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0%;
+  text-align: left;
+}
+
+
+.productspage .menu .product-list-section .product-cards {
+  width: 100%;
+  height: auto;
+  margin-left: 22px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.productspage .menu .product-list-section .product-cards .card {
+  width: 235px;
+  height: 361px;
+  margin-right: 34px;
+  border-radius: 0px 50px 0px 0px;
+}
+
+.productspage .menu .product-list-section .product-cards .card .card-picture {
+  border-radius: 0px 50px 0px 0px;
+}
+
+.productspage .menu .product-list-section .product-cards .card .product-sale {
+    position: absolute;
+    margin-top: 10px;
+    z-index: 100;
+    width: 93px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ff9200;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.4);
+    border-radius: 25px;
+    font-family: Roboto Serif;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 13px;
+    letter-spacing: 0%;
+    text-align: center;
+    color: rgb(248, 248, 255);
+}
+
+.productspage .menu .product-list-section .product-cards .card .product-detail {
+  width: 100%;
+  height: 85px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.productspage .menu .product-list-section .product-cards .card .product-detail .product-name {
+  font-family: Poppins;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+  letter-spacing: 0%;
+  text-align: left;
+  color: rgb(52, 52, 52);
+}
+
+.productspage .menu .product-list-section .product-cards .card .product-detail .icon-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 36px;
+  letter-spacing: 0%;
+  text-align: left;
+  color: rgb(227, 192, 141);
+}
+
+.productspage .menu .pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* BRAND BOARD */
+
+.productspage .brand-board {
+  width: 100%;
+  height: 630px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgb(13, 21, 24);
+}
+
+.productspage .brand-board .title {
+  margin-top: 84px;
+  font-family: Roboto;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 42px;
+  letter-spacing: 0%;
+  text-align: center;
+  color: rgb(227, 192, 141);
+}
+
+.productspage .brand-board .brands {
+  width: 1300px;
+  height: 630px;
+  margin-top: 58px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.productspage .brand-board .brands .image-box {
+  width: 258px;
+  height: 350px;
+  background: rgb(13, 21, 24);
+  border-radius: 20px;
+  box-shadow: 2px 2px 4px 4px rgba(213, 213, 213, 0.25);
+}
+
+.productspage .brand-board .brands .image-box .image {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* Address */
+
+.address {
+  width: 100%;
+}
+
+.address .address-area {
+  width: 100%;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.address .address-area .title {
+  margin-top: 80px;
+  font-family: Roboto Serif;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 42px;
+  letter-spacing: 0%;
+  text-align: left;
+  color: rgb(52, 52, 52);
+}
+
+
