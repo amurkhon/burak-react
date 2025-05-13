@@ -11,7 +11,7 @@ export interface Product {
     productVolume: Number,
     productDesc?: String,
     productImages: String[],
-    productViews: Number,
+    productViews: String,
     createAt: Date,
     updateAt: Date
 }
