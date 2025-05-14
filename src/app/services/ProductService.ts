@@ -1,6 +1,7 @@
 import axios from "axios";
 import { serverApi } from "../../lib/config";
 import { Product, ProductInquiry } from "../../lib/types/product";
+import { Member } from "../../lib/types/member";
 
 class ProductService {
     private readonly path: string;
@@ -25,7 +26,7 @@ class ProductService {
             console.log("Error, getProduct: ", err);
             throw err;
         }
-    }
+    };
 }
 
 export default ProductService;
