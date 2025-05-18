@@ -10,6 +10,7 @@
   height: auto;
   margin-top: 77px;
   display: flex;
+  padding-bottom: 70px;
 }
 
 .productspage .menu .title {
@@ -43,7 +44,8 @@
   height: 36px;
   box-sizing: border-box;
   border: 1px solid rgb(255, 255, 255);
-  border-radius: 18.5px;
+  border-radius: 18.5px 0px;
+  padding: 10px;
 
   box-shadow: 0px 4px 4px 0px rgba(213, 213, 213, 0.25);
   background: rgb(255, 252, 252);
@@ -52,7 +54,7 @@
 .productspage .menu .title .search-button {
   width: 106px;
   height: 40px;
-  margin-left: -30px;
+  margin-left: 0px;
   border-radius: 18.5px;
   background: rgb(52, 52, 52);
   color: #d7b586;
@@ -170,6 +172,47 @@
     letter-spacing: 0%;
     text-align: center;
     color: rgb(248, 248, 255);
+}
+
+.productspage .menu .product-list-section .product-cards .card .product-order-busket {
+  visibility: hidden;
+  position: absolute;
+  bottom: 40px;
+  z-index: 100;
+  width: 60px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  align-self: center;
+  background-color: #da4fba;
+  border-radius: 10px;
+}
+
+.productspage .menu .product-list-section .product-cards .card :hover .product-order-busket {
+  visibility:visible;
+}
+
+.productspage .menu .product-list-section .product-cards .card .product-view {
+  visibility: hidden;
+  position: absolute;
+  bottom: 40px;
+  z-index: 100;
+  width: 60px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  align-self: flex-end;
+  background-color: black;
+  opacity: 0.9;
+  border-radius: 100%;
+}
+
+.productspage .menu .product-list-section .product-cards .card :hover .product-view {
+  visibility:visible;
 }
 
 .productspage .menu .product-list-section .product-cards .card .product-detail {
