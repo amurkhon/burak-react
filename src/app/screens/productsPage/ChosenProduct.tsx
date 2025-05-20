@@ -20,6 +20,7 @@ import { setChosenProduct, setRestaurant } from "./slice";
 import { serverApi } from "../../../lib/config";
 import { Member } from "../../../lib/types/member";
 import MemberService from "../../services/MemberService";
+import { CartItem } from "../../../lib/types/search";
 
 const actionDispatch = (dispatch: Dispatch) => ({
     setChosenProduct: (data: Product) => dispatch(setChosenProduct(data)),
@@ -32,7 +33,13 @@ interface id{
 const chosenProductroductRetriever = createSelector(retrieveChosenProductPage, (chosenProduct) => ({chosenProduct}));
 const restaurantRetriever = createSelector(retrieveRestaurant, (restaurant) => ({restaurant}));
 
-export default function ChosenProduct() {
+interface ChosenProductProps {
+    onAdd: (item: CartItem) => void;
+};
+
+export default function ChosenProduct(props: ChosenProductProps) {
+
+  const { onAdd } = props;
   const { productId }  = useParams<{productId: string}>();
   const { setChosenProduct, setRestaurant } = actionDispatch(useDispatch());
   const { chosenProduct } = useSelector(chosenProductroductRetriever);

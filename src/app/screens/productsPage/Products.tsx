@@ -1,5 +1,5 @@
 import { Badge, Box, Container, CssVarsProvider, Stack } from "@mui/joy";
-import { OutlinedInput, Button } from "@mui/material";
+import { Button } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 import PaidIcon from '@mui/icons-material/Paid';
 import Pagination from '@mui/material/Pagination';
@@ -21,7 +21,8 @@ import { useDispatch } from "react-redux";
 import ProductService from "../../services/ProductService";
 import { ProductCollelction } from "../../../lib/enums/product.enum";
 import { ChangeEvent, useEffect, useState } from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { CartItem } from "../../../lib/types/search";
 
 const actionDispatch = (dispatch: Dispatch) => ({
     setProducts: (data: Product[]) => dispatch(setProducts(data)),
@@ -29,7 +30,12 @@ const actionDispatch = (dispatch: Dispatch) => ({
 
 const productsRetriever = createSelector(retrieveProductsPage, (products) => ({products}));
 
-export default function Products() {
+interface ProductsProps {
+    onAdd: (item: CartItem) => void;
+};
+
+export default function Products(props: ProductsProps) {
+    const { onAdd } = props;
     const { setProducts } = actionDispatch(useDispatch());
     const { products } = useSelector(productsRetriever);
     const [productSearch, setProductSearch] = useState({
@@ -127,7 +133,17 @@ export default function Products() {
                                         <Card key={product._id} className={"card"} variant="soft" onClick={() => chooseDishHandler(product._id)}>
                                             <CardOverflow>
                                                 <div className="product-sale">{product.productCollection === ProductCollelction.DRINK ? product.productVolume + " litre" : product.productSize + " size"}</div>
-                                                <div className="product-order-busket">
+                                                <div className="product-order-busket" onClick={(e) => {
+                                                    console.log("Button Pressed!");
+                                                    onAdd({
+                                                        _id: product._id,
+                                                        quantity: 1,
+                                                        name: product.productName,
+                                                        price: product.productPrice,
+                                                        image: product.productImages[0],
+                                                    })
+                                                    e.stopPropagation();
+                                                }}>
                                                     <ShoppingCartIcon sx={{width: "50px", height: "30px", color: "white"}} />
                                                 </div>
                                                 <div className="product-view">
