@@ -5,7 +5,7 @@ export interface Product {
     productStatus: ProductStatus,
     productCollection: ProductCollelction,
     productName: String,
-    productPrice: String,
+    productPrice: number,
     productLeftCount: Number,
     productSize: ProductSize,
     productVolume: Number,

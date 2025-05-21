@@ -134,7 +134,6 @@ export default function Products(props: ProductsProps) {
                                             <CardOverflow>
                                                 <div className="product-sale">{product.productCollection === ProductCollelction.DRINK ? product.productVolume + " litre" : product.productSize + " size"}</div>
                                                 <div className="product-order-busket" onClick={(e) => {
-                                                    console.log("Button Pressed!");
                                                     onAdd({
                                                         _id: product._id,
                                                         quantity: 1,
