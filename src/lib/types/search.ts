@@ -1,5 +1,5 @@
 export interface CartItem {
-    _id: String;
+    _id: string;
     quantity: number;
     name: String;
     price: number;

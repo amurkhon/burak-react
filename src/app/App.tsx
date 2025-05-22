@@ -23,8 +23,8 @@ function App() {
 
   /* Handlers */
   
-  const handleSignupClose = () => setSignupOpen(true);
-  const handleLoginClose = () => setLoginOpen(true);
+  const handleSignupClose = () => setSignupOpen(false);
+  const handleLoginClose = () => setLoginOpen(false);
   
 
   return (
@@ -37,10 +37,8 @@ function App() {
             onRemove = {onRemove} 
             onDelete = {onDelete}
             onDeleteAll = {onDeleteAll}
-            signupOpen={signupOpen}
-            loginOpen={loginOpen}
-            handleSignupClose={handleSignupClose}
-            handleLoginClose={handleLoginClose}
+            setSignupOpen={setSignupOpen}
+            setLoginOpen={setLoginOpen}
           /> 
         : <OtherNavbar 
             cartItems = {cartItems} 
@@ -48,6 +46,8 @@ function App() {
             onRemove = {onRemove} 
             onDelete = {onDelete}
             onDeleteAll = {onDeleteAll}
+            setSignupOpen={setSignupOpen}
+            setLoginOpen={setLoginOpen}
           />
     }
       <Switch>

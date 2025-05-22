@@ -10,34 +10,16 @@ interface HomeNavbarProps {
     onRemove: (item: CartItem) => void;
     onDelete: (item: CartItem) => void;
     onDeleteAll: () => void;
-    signupOpen: boolean;
-    loginOpen: boolean;
-    handleSignupClose: () => void;
-    handleLoginClose: () => void;
+    setSignupOpen: (isOpen: boolean) => void;
+    setLoginOpen: (isOpen: boolean) => void;
 };
 
 export default function HomeNavbar(props: HomeNavbarProps) {
-    const {cartItems, onAdd, onRemove, onDelete, onDeleteAll, handleSignupClose, handleLoginClose} = props;
+    const {cartItems, onAdd, onRemove, onDelete, onDeleteAll, setSignupOpen, setLoginOpen} = props;
     const authMember = false;
-
-    const [count, setCount] = useState<number>(0);
-    const [value, setValue] = useState<boolean>(true);
-
-    useEffect( () => {
-
-        console.log("componentDidMount"); // DATA FETCH
-        setCount(count + 1);
-
-        return () => {
-            console.log("componenWillUnmount");
-        };
-    }, [value]);
 
     /** Handlers **/
 
-    const buttonHandler = () => {
-        setValue(!value);
-    }
     return <div className="home-navbar">
         <Container className="navbar-container">
             <Stack className="menu">
@@ -77,7 +59,7 @@ export default function HomeNavbar(props: HomeNavbarProps) {
 
                     {!authMember ? (
                         <Box>
-                            <Button variant="contained" className="login-button" onClick={handleLoginClose}>LOGIN</Button>
+                            <Button variant="contained" className="login-button" onClick={() => setLoginOpen(true)}>LOGIN</Button>
                         </Box>
                     ) : (
                         <img 
@@ -92,13 +74,13 @@ export default function HomeNavbar(props: HomeNavbarProps) {
                 <Stack className={"detail"}>
                     <Box className={"head-main-text"}>World's Most Delicious Cousine</Box>
                     <Box className={"wel-text"}>The Choice, not just a choice!</Box>
-                    <Box className={"service-text"}>{count} hours service</Box>
+                    <Box className={"service-text"}>24 hours service</Box>
                     <Box className={"signup"}>
                         {!authMember ? (
                             <Button 
                                 variant={"contained"} 
                                 className={"signup-button"}
-                                onClick={handleSignupClose}
+                                onClick={() => setSignupOpen(true)}
                             >
                                 SIGN UP
                             </Button>
