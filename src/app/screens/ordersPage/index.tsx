@@ -24,11 +24,22 @@ import FormLabel from '@mui/joy/FormLabel';
 import Input from '@mui/joy/Input';
 import InfoOutlined from '@mui/icons-material/InfoOutlined';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
+import { Dispatch } from "@reduxjs/toolkit";
+import { setFinishedOrders, setPausedOrders, setProcessOrders } from "./slice";
+import { Order } from "../../../lib/types/order";
 import "../../../css/orders.css";
+import { useDispatch } from "react-redux";
+
+/** REDUX SLICE **/ 
+const actionDispatch = (dispatch: Dispatch) => ({
+    setPausedOrders: (data: Order[]) => dispatch(setPausedOrders(data)),
+    setProcessOrders: (data: Order[]) => dispatch(setProcessOrders(data)),
+    setFinishedOrders: (data: Order[]) => dispatch(setFinishedOrders(data)),
+});
 
 export default function OrdersPage() {
+    const { setPausedOrders, setProcessOrders, setFinishedOrders } = actionDispatch(useDispatch());
     const [ value, setValue ] = useState("1");
-    console.log("useState: ", useState("1"));
     
     const handleChange = (e: SyntheticEvent, newValue: string) => {
         setValue(newValue);
