@@ -114,7 +114,7 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
       const member = new MemberService();
       const result = await member.login(loginInput);
 
-      // Saving Authenticated User
+      setAuthMember(result);
       handleLoginClose();
 
     } catch (err) {
