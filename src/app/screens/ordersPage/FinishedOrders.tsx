@@ -32,7 +32,7 @@ export default function FinishedOrders() {
                                                 src={imagePath}
                                                 className={"order-dish-img"}
                                             />
-                                            <p className={"title-dish"}>Lavash</p>
+                                            <p className={"title-dish"}>{product.productName}</p>
                                             <Box className={"price-box-process"}>
                                                 <p>${product.productPrice}</p>
                                                 <img src={"/icons/close.svg"} />

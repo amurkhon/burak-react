@@ -32,6 +32,7 @@ import { useDispatch } from "react-redux";
 import { OrderStatus } from "../../../lib/enums/order.enum";
 import OrderSrevice from "../../services/OrderService";
 import OrderService from "../../services/OrderService";
+import { useGlobals } from "../../hooks/useGlobals";
 
 /** REDUX SLICE **/ 
 const actionDispatch = (dispatch: Dispatch) => ({
@@ -42,6 +43,7 @@ const actionDispatch = (dispatch: Dispatch) => ({
 
 export default function OrdersPage() {
     const { setPausedOrders, setProcessOrders, setFinishedOrders } = actionDispatch(useDispatch());
+    const { orderBuilder } = useGlobals(); 
     const [ value, setValue ] = useState("1");
     const [orderInquiry, setOrderInquiry] = useState<OrderInquiry>({
         page: 1,
@@ -70,7 +72,7 @@ export default function OrdersPage() {
         })
         .catch((err) => console.log(err));
 
-    },[orderInquiry]);
+    },[orderInquiry, orderBuilder]);
     /* HANDLERS  */ 
     
     const handleChange = (e: SyntheticEvent, newValue: string) => {
@@ -91,9 +93,9 @@ export default function OrdersPage() {
                                     </Tabs>
                                 </Box>
                                 <Stack className={"order-main-content"}>
-                                    <PausedOrders />
+                                    <PausedOrders setValue ={setValue} />
                                     <FinishedOrders />
-                                    <ProcessOrders />
+                                    <ProcessOrders setValue ={setValue} />
                                 </Stack>
                             </Box>
                         </TabContext>
