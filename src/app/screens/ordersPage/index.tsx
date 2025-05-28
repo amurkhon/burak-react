@@ -33,6 +33,9 @@ import { OrderStatus } from "../../../lib/enums/order.enum";
 import OrderSrevice from "../../services/OrderService";
 import OrderService from "../../services/OrderService";
 import { useGlobals } from "../../hooks/useGlobals";
+import { useHistory } from "react-router-dom";
+import { serverApi } from "../../../lib/config";
+import { MemberType } from "../../../lib/enums/member.enum";
 
 /** REDUX SLICE **/ 
 const actionDispatch = (dispatch: Dispatch) => ({
@@ -42,8 +45,11 @@ const actionDispatch = (dispatch: Dispatch) => ({
 });
 
 export default function OrdersPage() {
+    const history = useHistory();
+    const {authMember, orderBuilder} = useGlobals();
+
+    if(!authMember) history.push("/");
     const { setPausedOrders, setProcessOrders, setFinishedOrders } = actionDispatch(useDispatch());
-    const { orderBuilder } = useGlobals(); 
     const [ value, setValue ] = useState("1");
     const [orderInquiry, setOrderInquiry] = useState<OrderInquiry>({
         page: 1,
@@ -104,21 +110,17 @@ export default function OrdersPage() {
                     <CssVarsProvider>
                         <Card className={"card-user"} >
                             <CardContent sx={{ alignItems: 'center', textAlign: 'center' }}>
-                                <Avatar src="/img/justin.webp" sx={{ '--Avatar-size': '4rem', borderRadius: "20px" }} />
-                                <Chip
-                                size="sm"
-                                color="primary"
-                                sx={{
-                                    mt: -2,
-                                    ml: 4,
-                                    backfaceVisibility: "visible"
-                                }}
-                                >
-                                    <AccountCircleIcon sx={{backfaceVisibility: "visible"}} />
-                                </Chip>
-                                <Typography level="title-lg">Justin</Typography>
+                                <Avatar src={
+                                    authMember?.memberImage 
+                                    ? `${serverApi}/${authMember.memberImage}` 
+                                    : "/icons/default-user.svg"
+                                } sx={{ '--Avatar-size': '4rem', borderRadius: "20px" }} />
+                                <div className={"order-user-icon-box"}>
+                                    <img src={authMember?.memberType === MemberType.RESTAURANT ? "/icons/restaurant.svg" : "/icons/user-badge.svg"} />
+                                </div>
+                                <Typography level="title-lg">{authMember?.memberNick}</Typography>
                                 <Typography level="body-sm" sx={{ maxWidth: '24ch' }}>
-                                User
+                                    {authMember?.memberType}
                                 </Typography>
                                 <Box
                                 sx={{
@@ -207,7 +209,7 @@ export default function OrdersPage() {
                                 <Stack sx={{display: "flex", flexDirection: "row", justifyContent: "start", alignItems: "center"}} >
                                     <LocationOnIcon />
                                     <Typography sx={{ml: "2px"}}>
-                                        South Korea, Busan
+                                        {authMember?.memberAddress ? authMember.memberAddress : "Do not exist!"}
                                     </Typography>
                                 </Stack>
                             </CardOverflow>

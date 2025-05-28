@@ -30,6 +30,17 @@
     justify-content: flex-start;
     align-items: center;
 }
+.order-right .order-user-icon-box {
+    position: absolute;
+	padding: 5px;
+	width: 30px;
+	height: 30px;
+	top: 20%;
+	right: 35%;
+	display: flex;
+	background: rgb(209 209 209 / 33%);
+	border-radius: 37px;
+}
 
 .orders-page .order-container .order-right .card-user {
     width: 308px;

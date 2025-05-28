@@ -33,7 +33,7 @@
 	flex-direction: column;
 }
 
-.my-page-left .menu-name {
+.user-page .my-page-frame .my-page-left .menu-name {
 	width: 100%;
 	height: 70px;
 	display: flex;
